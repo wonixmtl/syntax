@@ -2,6 +2,12 @@
 #ifndef DATASTRUCT_H_
 #define DATASTRUCT_H_
 
+struct LinkedList
+{
+	int num;
+	LinkedList* next;
+};
+
 class DataStruct
 {
 public:
@@ -10,18 +16,9 @@ public:
 
 	// ---------链表---------
 	void link_1();
-
-	// 单链表
-	struct LinkedList
-	{
-		int num;
-		LinkedList* next;
-	};
-
 	LinkedList* create(int n);
-	void print(LinkedList* list);
+	void print(LinkedList* head);
 	
-
 	// ---------栈、队列和数组---------
 	
 	// ---------树---------

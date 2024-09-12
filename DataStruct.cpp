@@ -36,42 +36,50 @@ void DataStruct::link_1()
 	cout << list.next->num << endl;
 }
 
-// 2.单链表的创建
-DataStruct::LinkedList* DataStruct::create(int n)
-{
-	LinkedList* head{};
-	LinkedList* temp = nullptr;
 
+
+// 2.单链表的创建
+LinkedList* DataStruct::create(int n)
+{
 	if (n <= 0)
 	{
-		nullptr;
+		return nullptr;
 	}
 	else
 	{
+		LinkedList* head = (LinkedList*)malloc(sizeof(LinkedList));
+		LinkedList* p = (LinkedList*)malloc(sizeof(LinkedList));
+
 		for (int i = 0; i < n; i++)
 		{
-			LinkedList* list = nullptr;
+			LinkedList* temp = (LinkedList*)malloc(sizeof(LinkedList));
 			if (i == 0)
 			{
-				head->next = list;
+				head->next = temp;
 			}
-			list->num = i + 1;
-			list->next = nullptr;
-			temp->next = list;
+			p->next = temp;
+			p = temp;
+			temp->num = i + 1;
+			temp->next = nullptr;
 		}
 
-		return temp;
+		return head;
 	}
 }
 
-void DataStruct::print(LinkedList* list)
+void DataStruct::print(LinkedList* head)
 {
-	while (list->next != nullptr)
+	if (head != nullptr)
 	{
-		cout << list->num << endl;
-		list = list->next;
+		while (head->next != nullptr)
+		{
+			cout << head->next->num << endl;
+			head = head->next;
+		}
 	}
 }
+
+
 
 
 

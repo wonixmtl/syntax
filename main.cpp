@@ -8,8 +8,8 @@ using namespace std;
 int main()
 {
 	cout << "ÌÇÒ×ÀÃ£¬¶¯ÄÑÅÖ" << endl;
-	DataStruct::LinkedList* head;
 	DataStruct ds;
+	LinkedList* head = (LinkedList*)malloc(sizeof(LinkedList));
 	head = ds.create(10);
 	ds.print(head);
 
