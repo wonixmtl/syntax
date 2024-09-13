@@ -9,9 +9,24 @@ int main()
 {
 	cout << "ÌÇÒ×ÀÃ£¬¶¯ÄÑÅÖ" << endl;
 	DataStruct ds;
-	LinkedList* head = (LinkedList*)malloc(sizeof(LinkedList));
-	head = ds.create(10);
+	SingleLinkedList* head = (SingleLinkedList*)malloc(sizeof(SingleLinkedList));
+	// ´´½¨µ¥Á´±í
+	head = ds.listCreateByTail(10);
+	//head = ds.listCreateByHead(10);
 	ds.print(head);
+
+	// Ìí¼Ó²âÊÔ
+	head = ds.listAddByHead(head, 7);
+	ds.print(head);
+
+	// É¾³ı²âÊÔ
+	head = ds.listDel(head, 3);
+	ds.print(head);
+
+	// ĞŞ¸Ä²âÊÔ
+	head = ds.listChange(head, 2, 12);
+	ds.print(head);
+
 
 	system("pause");
 	return 0;

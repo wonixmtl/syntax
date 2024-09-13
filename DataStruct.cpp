@@ -1,7 +1,7 @@
 #include <iostream>
-#include <cmath>
 #include <vector>
 #include "DataStruct.h"
+#include "LinkedList.h"
 
 using namespace std;
 
@@ -36,10 +36,9 @@ void DataStruct::link_1()
 	cout << list.next->num << endl;
 }
 
-
-
-// 2.单链表的创建
-LinkedList* DataStruct::create(int n)
+// 2.单链表（操作结构体）
+// 单链表创建
+SingleLinkedList* DataStruct::listCreateByTail(int n)
 {
 	if (n <= 0)
 	{
@@ -47,37 +46,154 @@ LinkedList* DataStruct::create(int n)
 	}
 	else
 	{
-		LinkedList* head = (LinkedList*)malloc(sizeof(LinkedList));
-		LinkedList* p = (LinkedList*)malloc(sizeof(LinkedList));
+		SingleLinkedList* head = (SingleLinkedList*)malloc(sizeof(SingleLinkedList));
 
 		for (int i = 0; i < n; i++)
 		{
-			LinkedList* temp = (LinkedList*)malloc(sizeof(LinkedList));
-			if (i == 0)
-			{
-				head->next = temp;
-			}
-			p->next = temp;
-			p = temp;
-			temp->num = i + 1;
-			temp->next = nullptr;
+			listAddByTail(head, i + 1);
 		}
 
 		return head;
 	}
 }
 
-void DataStruct::print(LinkedList* head)
+// 单链表创建
+SingleLinkedList* DataStruct::listCreateByHead(int n)
+{
+	if (n <= 0)
+	{
+		return nullptr;
+	}
+	else
+	{
+		SingleLinkedList* head = (SingleLinkedList*)malloc(sizeof(SingleLinkedList));
+
+		for (int i = 0; i < n; i++)
+		{
+			listAddByHead(head, i + 1);
+		}
+
+		return head;
+	}
+}
+
+// 单链表添加（往头部）
+SingleLinkedList* DataStruct::listAddByHead(SingleLinkedList* head, int num)
+{
+	SingleLinkedList* temp = (SingleLinkedList*)malloc(sizeof(SingleLinkedList));
+	temp->num = num;
+	temp->next = nullptr;
+
+	if (head->next == nullptr)
+	{
+		head->next = temp;
+	}
+	else
+	{
+		temp->next = head->next;
+		head->next = temp;
+	}
+
+	return head;
+}
+
+// 单链表添加（往尾部）
+SingleLinkedList* DataStruct::listAddByTail(SingleLinkedList* head, int num)
+{
+	SingleLinkedList* tail = head;
+	SingleLinkedList* temp = (SingleLinkedList*)malloc(sizeof(SingleLinkedList));
+	temp->num = num;
+	temp->next = nullptr;
+
+	while (tail->next != nullptr)
+	{
+		tail = tail->next;
+	}
+	tail->next = temp;
+
+	return head;
+}
+
+// 单链表删除
+SingleLinkedList* DataStruct::listDel(SingleLinkedList* head, int num)
+{
+	SingleLinkedList* prior = listSearch(head, num);
+	if (prior != nullptr)
+	{
+		// 删除尾
+		if (prior->next->next == nullptr)
+		{
+			prior->next = nullptr;
+		}
+		else
+		{
+			prior->next = prior->next->next;
+		}
+	}
+
+	return head;
+}
+
+// 单链表修改
+SingleLinkedList* DataStruct::listChange(SingleLinkedList* head, int a, int b)
+{
+	SingleLinkedList* prior = listSearch(head, a);
+	if (prior != nullptr)
+	{
+		prior->next->num = b;
+	}
+
+	return head;
+}
+
+// 单链表查找
+SingleLinkedList* DataStruct::listSearch(SingleLinkedList* head, int num)
 {
 	if (head != nullptr)
 	{
 		while (head->next != nullptr)
 		{
-			cout << head->next->num << endl;
-			head = head->next;
+			if (head->next->num == num)
+			{
+				return head;
+			}
+			else
+			{
+				head = head->next;
+			}
 		}
 	}
+
+	return nullptr;
 }
+
+// 单链表打印
+void DataStruct::print(SingleLinkedList* head)
+{
+	if (head != nullptr)
+	{
+		while (head->next != nullptr)
+		{
+			cout << head->next->num;
+			head = head->next;
+			if (head->next != nullptr)
+			{
+				cout << " -> ";
+			}
+		}
+		cout << endl;
+	}
+}
+
+// 3.单链表、双向链表、环形链表（类）
+// 单链表演示
+void DataStruct::singleLinkedList()
+{
+	LinkedList singleList;
+}
+
+
+
 
 
 
