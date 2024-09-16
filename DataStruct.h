@@ -15,7 +15,7 @@ public:
 	DataStruct();
 	~DataStruct();
 
-	// ---------链表（操作结构体）---------
+	// ---------链表（结构体）---------
 	void link_1();
 	SingleLinkedList* listCreateByTail(int n);
 	SingleLinkedList* listCreateByHead(int n);
@@ -26,8 +26,10 @@ public:
 	SingleLinkedList* listSearch(SingleLinkedList* head, int num);
 	void print(SingleLinkedList* head);
 
-	// ---------链表（操作类）---------
+	// ---------链表（类）---------
 	void singleLinkedList();
+	void doubleLinkedList();
+	void annularLinkedList();
 	
 	// ---------栈、队列和数组---------
 	

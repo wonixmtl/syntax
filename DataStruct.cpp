@@ -36,7 +36,7 @@ void DataStruct::link_1()
 	cout << list.next->num << endl;
 }
 
-// 2.单链表（操作结构体）
+// 2.单链表（结构体）
 // 单链表创建
 SingleLinkedList* DataStruct::listCreateByTail(int n)
 {
@@ -186,11 +186,82 @@ void DataStruct::print(SingleLinkedList* head)
 }
 
 // 3.单链表、双向链表、环形链表（类）
-// 单链表演示
+// 单链表测试
 void DataStruct::singleLinkedList()
 {
-	LinkedList singleList;
+	LinkedList list;
+	LinkedList* head = (LinkedList*)malloc(sizeof(LinkedList));
+	int n = 10;
+
+	for (int i = 0; i < n; i++)
+	{
+		list.singleAddByHead(head, i + 1);
+		list.singleAddByTail(head, (i + 1) * (i + 1));
+	}
+
+	// 打印创建
+	list.singlePrint(head);
+
+	// 打印修改
+	list.singleChange(head, 100, 8);
+	list.singlePrint(head);
+
+	// 打印删除
+	list.singleDel(head, 10);
+	list.singlePrint(head);
 }
+
+// 双链表测试
+void DataStruct::doubleLinkedList()
+{
+	LinkedList list;
+	LinkedList* head = (LinkedList*)malloc(sizeof(LinkedList));
+	int n = 10;
+
+	for (int i = 0; i < n; i++)
+	{
+		list.doubleAddByHead(head, i + 1);
+		list.doubleAddByTail(head, (i + 1) * (i + 1));
+	}
+
+	// 打印创建
+	list.doublePrint(head);
+
+	// 打印修改
+	list.doubleChange(head, 100, 8);
+	list.doublePrint(head);
+
+	// 打印删除
+	list.doubleDel(head, 10);
+	list.doublePrint(head);
+}
+
+// 环形链表测试
+void DataStruct::annularLinkedList()
+{
+	LinkedList list;
+	LinkedList* head = (LinkedList*)malloc(sizeof(LinkedList));
+	head->setNum(INT_MAX);
+	int n = 10;
+
+	for (int i = 0; i < n; i++)
+	{
+		list.annularAddByHead(head, i + 1);
+		list.annularAddByTail(head, (i + 1) * (i + 1));
+	}
+
+	// 打印创建
+	list.annularPrint(head);
+
+	// 打印修改
+	list.annularChange(head, 100, 8);
+	list.annularPrint(head);
+
+	// 打印删除
+	list.annularDel(head, 10);
+	list.annularPrint(head);
+}
+
 
 
 

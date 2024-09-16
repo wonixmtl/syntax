@@ -11,7 +11,7 @@ int main()
 	DataStruct ds;
 	SingleLinkedList* head = (SingleLinkedList*)malloc(sizeof(SingleLinkedList));
 	// 创建单链表
-	head = ds.listCreateByTail(10);
+	/*head = ds.listCreateByTail(10);
 	//head = ds.listCreateByHead(10);
 	ds.print(head);
 
@@ -25,7 +25,12 @@ int main()
 
 	// 修改测试
 	head = ds.listChange(head, 2, 12);
-	ds.print(head);
+	ds.print(head);*/
+
+	// 链表类
+	//ds.singleLinkedList();
+	//ds.doubleLinkedList();
+	ds.annularLinkedList();
 
 
 	system("pause");
