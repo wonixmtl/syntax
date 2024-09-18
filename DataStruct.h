@@ -32,6 +32,8 @@ public:
 	void annularLinkedList();
 	
 	// ---------栈、队列和数组---------
+	void stackTest();
+	void queueTest();
 	
 	// ---------树---------
 	

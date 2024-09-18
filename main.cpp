@@ -30,7 +30,11 @@ int main()
 	// 链表类
 	//ds.singleLinkedList();
 	//ds.doubleLinkedList();
-	ds.annularLinkedList();
+	//ds.annularLinkedList();
+
+	// 栈和队列
+	//ds.stackTest();
+	//ds.queueTest();
 
 
 	system("pause");

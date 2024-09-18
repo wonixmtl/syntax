@@ -24,12 +24,14 @@
     <ClCompile Include="DataStruct.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="StackQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arithmetic.h" />
     <ClInclude Include="Base.h" />
     <ClInclude Include="DataStruct.h" />
     <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="StackQueue.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

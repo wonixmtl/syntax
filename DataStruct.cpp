@@ -2,6 +2,7 @@
 #include <vector>
 #include "DataStruct.h"
 #include "LinkedList.h"
+#include "StackQueue.h"
 
 using namespace std;
 
@@ -262,64 +263,79 @@ void DataStruct::annularLinkedList()
 	list.annularPrint(head);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // --------------------------------------------栈、队列和数组--------------------------------------------
+
+// 栈->先进后出
+void DataStruct::stackTest()
+{
+	StackQueue stack;
+
+	stack.defaultStack(10);
+
+	cout << "栈尺寸: " << stack.getSize() << endl;
+
+	int temp = stack.pop();
+
+	while (temp != -1)
+	{
+		cout << temp << endl;
+		temp = stack.pop();
+	}
+
+	cout << "栈顶指针：" << stack.getTop() << endl;
+}
+
+void DataStruct::queueTest()
+{
+	StackQueue queue;
+	queue.defaultQueue(10);
+
+	cout << "队列尺寸: " << queue.getSize() << endl;
+
+	int temp = queue.output();
+	while (temp != -1)
+	{
+		cout << temp << endl;
+		temp = queue.output();
+	}
+
+	cout << "队列指针: " << queue.getFront() << ", " << queue.getRear() << endl;
+	cout << "队列尺寸: " << queue.getSize() << endl;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --------------------------------------------串--------------------------------------------
 
 // --------------------------------------------树--------------------------------------------
 
