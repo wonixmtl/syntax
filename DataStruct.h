@@ -34,6 +34,9 @@ public:
 	// ---------栈、队列和数组---------
 	void stackTest();
 	void queueTest();
+
+	// ---------串---------
+	void stringTest();
 	
 	// ---------树---------
 	

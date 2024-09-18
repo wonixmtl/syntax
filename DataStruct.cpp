@@ -3,6 +3,7 @@
 #include "DataStruct.h"
 #include "LinkedList.h"
 #include "StackQueue.h"
+#include "StringStruct.h"
 
 using namespace std;
 
@@ -304,38 +305,29 @@ void DataStruct::queueTest()
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // --------------------------------------------´®--------------------------------------------
+
+// 1¡¢×Ö·û´®Æ¥Åä
+void DataStruct::stringTest()
+{
+	if (true)
+	{
+		cout << "test" << endl;
+	}
+	char s[] = "abbcabcbbbabbacbacbbbcabbacbbbacbcbbbbcaabbacbaacbcabcbabbcbbaccbac";
+	char t[] = "ccbac";  // "abcbb";"bbacb"
+	StringStruct str;
+	int index = str.index(s, t);
+	char* r = (char*)malloc(sizeof(char));
+	if (index != -1)
+	{
+		r = s + index;
+	}
+
+	cout << t << endl;
+	cout << index << ", " << r << endl;
+	free(r);
+}
 
 // --------------------------------------------Ê÷--------------------------------------------
 

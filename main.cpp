@@ -36,7 +36,10 @@ int main()
 	//ds.stackTest();
 	//ds.queueTest();
 
+	// ´®
+	ds.stringTest();
 
-	system("pause");
+
+	//system("pause");
 	return 0;
 }

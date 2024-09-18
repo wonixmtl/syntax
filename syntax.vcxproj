@@ -25,6 +25,7 @@
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StackQueue.cpp" />
+    <ClCompile Include="StringStruct.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arithmetic.h" />
@@ -32,6 +33,7 @@
     <ClInclude Include="DataStruct.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="StackQueue.h" />
+    <ClInclude Include="StringStruct.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -133,6 +135,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
