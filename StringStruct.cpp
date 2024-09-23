@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "StringStruct.h"
 
 using namespace std;
@@ -28,6 +29,10 @@ int StringStruct::index(char* s, char* t)
 	int sLength = getLength(s);
 	int tLength = getLength(t);
 	int i = 0, j = 0;
+
+	string tStr = t;
+	tStr = tStr.substr(0, 3);
+	cout << "字符串截取: " << tStr << endl;
 
 	cout << "sLength: " << sLength << endl;
 	cout << "tLength: " << tLength << endl;
@@ -83,5 +88,76 @@ int StringStruct::index(char* s, char* t)
 
 int StringStruct::indexKMP(char* s, char* t)
 {
-	return 0;
+	int sLength = getLength(s);
+	int tLength = getLength(t);
+	int i = 0, j = 0;
+
+	// 求next数组
+	int next[255] = { 0 };
+	next[1] = t[0] == t[1] ? 1 : 0;
+	for (i = 2; i < tLength; i++)
+	{
+		next[i] = getStrSize(t, next, i, t[i]);
+	}
+	
+	for (i = 0; i < tLength; i++)
+	{
+		cout << next[i] << (i != tLength - 1 ? ", " : "");
+	}
+	cout << endl;
+
+	for (i = 0; i < sLength;)
+	{
+		for (;  j < tLength;)
+		{
+			if (s[i] == t[j])
+			{
+				i++;
+				j++;
+			}
+			else
+			{
+				if (j != 0)
+				{
+					j = next[j - 1];
+				}
+				else
+				{
+					i++;
+					j++;
+				}
+			}
+		}
+	}
+
+	if (j == tLength)
+	{
+		return i - j;
+	}
+	else
+	{
+		return -1;
+	}
+}
+
+// 比较已知最长子串的下一个字符和当前字符是否相等，相等长度加一，不相等递归寻找最长子串的最长子串，直到无子串
+int StringStruct::getStrSize(char* t, int next[], int i, char c)
+{
+	if (next[i - 1] == 0)
+	{
+		if (t[0] == c)
+		{
+			return 1;
+		}
+		return 0;
+	}
+
+	if (t[next[i - 1]] == c)
+	{
+		return next[i - 1] + 1;
+	}
+	else
+	{
+		getStrSize(t, next, next[i - 1], c);
+	}
 }

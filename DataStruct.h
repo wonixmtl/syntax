@@ -37,6 +37,7 @@ public:
 
 	// ---------´®---------
 	void stringTest();
+	void stringKMP();
 	
 	// ---------Ê÷---------
 	

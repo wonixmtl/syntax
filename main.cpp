@@ -37,7 +37,8 @@ int main()
 	//ds.queueTest();
 
 	// ´®
-	ds.stringTest();
+	//ds.stringTest();
+	ds.stringKMP();
 
 
 	//system("pause");

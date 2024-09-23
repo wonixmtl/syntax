@@ -314,8 +314,8 @@ void DataStruct::stringTest()
 	{
 		cout << "test" << endl;
 	}
-	char s[] = "abbcabcbbbabbacbacbbbcabbacbbbacbcbbbbcaabbacbaacbcabcbabbcbbaccbac";
-	char t[] = "ccbac";  // "abcbb";"bbacb"
+	char s[] = "abbcabcbbbabbacbacbbbcabbacbbbacbcbbbbabcbbcbabbcbabbcbcbababbcbbcabbcbcbbcbabcbbcbcabbababcbbabcbabcbabcbcbbabbcbabcbabcbbabcbabbcbabcbbabbcbbabcbabbcbbabcbbacbbabcbbabcbbabbcbbbabcbabbcbabcbbabcbbbbbcabcbbabcaabbacbaacbcabcbabbcbbaccbac";
+	char t[] = "bbaccbac";  // "abcbb";"bbacb"
 	StringStruct str;
 	int index = str.index(s, t);
 	char* r = (char*)malloc(sizeof(char));
@@ -327,6 +327,19 @@ void DataStruct::stringTest()
 	cout << t << endl;
 	cout << index << ", " << r << endl;
 	free(r);
+}
+
+void DataStruct::stringKMP()
+{
+	StringStruct str;
+	char s[] = "abbcabcbbbabbacbacbbbcabbacbbbacbcbbbbabcbbcbabbcbabbcbcbababbcbbcabbcbcbbcbabcbbcbcabbababcbbabcbabcbabcbcbbabbcbabcbabcbbabcbabbcbabcbbabbcbbabcbabbcbbabcbbacbbabcbbabcbbabbcbbbabcbabbcbabcbbabcbbbbbcabcbbabcaabbacbaacbcabcbabbcbbaccbac";
+	char t[] = "bbaccbac";  // "abcbb";"bbacb"
+	int index = str.indexKMP(s, t);
+	string ss = s;
+	ss = ss.substr(index, strlen(t));
+
+	cout << "Ô­´®: " << t << endl;
+	cout << index << ", " << ss << endl;
 }
 
 // --------------------------------------------Ê÷--------------------------------------------

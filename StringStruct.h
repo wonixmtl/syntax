@@ -16,6 +16,7 @@ public :
 
 	// ×Ö·ûÆ¥Åä£¨KMP£©
 	int indexKMP(char* s, char* t);
+	int getStrSize(char* t, int next[], int i, char c);
 };
 #endif // !STRINGSTRUCT_H_
 
