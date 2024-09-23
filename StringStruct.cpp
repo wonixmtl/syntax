@@ -106,11 +106,14 @@ int StringStruct::indexKMP(char* s, char* t)
 	}
 	cout << endl;
 
-	for (i = 0; i < sLength;)
+	for (i = 0; i < sLength && j < tLength;)
 	{
 		for (;  j < tLength;)
 		{
-			if (s[i] == t[j])
+			char cs = s[i];
+			char ts = t[j];
+
+			if (cs == ts)
 			{
 				i++;
 				j++;
@@ -124,7 +127,6 @@ int StringStruct::indexKMP(char* s, char* t)
 				else
 				{
 					i++;
-					j++;
 				}
 			}
 		}

@@ -333,7 +333,7 @@ void DataStruct::stringKMP()
 {
 	StringStruct str;
 	char s[] = "abbcabcbbbabbacbacbbbcabbacbbbacbcbbbbabcbbcbabbcbabbcbcbababbcbbcabbcbcbbcbabcbbcbcabbababcbbabcbabcbabcbcbbabbcbabcbabcbbabcbabbcbabcbbabbcbbabcbabbcbbabcbbacbbabcbbabcbbabbcbbbabcbabbcbabcbbabcbbbbbcabcbbabcaabbacbaacbcabcbabbcbbaccbac";
-	char t[] = "bbaccbac";  // "abcbb";"bbacb"
+	char t[] = "bbcbbca";  // "abcbb";"bbacb"
 	int index = str.indexKMP(s, t);
 	string ss = s;
 	ss = ss.substr(index, strlen(t));
