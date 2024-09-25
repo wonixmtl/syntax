@@ -38,7 +38,10 @@ int main()
 
 	// ´®
 	//ds.stringTest();
-	ds.stringKMP();
+	//ds.stringKMP();
+
+	// Ê÷
+	ds.binaryTree();
 
 
 	//system("pause");

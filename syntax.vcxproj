@@ -26,6 +26,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StackQueue.cpp" />
     <ClCompile Include="StringStruct.cpp" />
+    <ClCompile Include="Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arithmetic.h" />
@@ -34,6 +35,7 @@
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="StackQueue.h" />
     <ClInclude Include="StringStruct.h" />
+    <ClInclude Include="Tree.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

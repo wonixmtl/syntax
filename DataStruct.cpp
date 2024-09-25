@@ -4,6 +4,7 @@
 #include "LinkedList.h"
 #include "StackQueue.h"
 #include "StringStruct.h"
+#include "Tree.h"
 
 using namespace std;
 
@@ -332,17 +333,55 @@ void DataStruct::stringTest()
 void DataStruct::stringKMP()
 {
 	StringStruct str;
-	char s[] = "abbcabcbbbabbacbacbbbcabbacbbbacbcbbbbabcbbcbabbcbabbcbcbababbcbbcabbcbcbbcbabcbbcbcabbababcbbabcbabcbabcbcbbabbcbabcbabcbbabcbabbcbabcbbabbcbbabcbabbcbbabcbbacbbabcbbabcbbabbcbbbabcbabbcbabcbbabcbbbbbcabcbbabcaabbacbaacbcabcbabbcbbaccbac";
-	char t[] = "bbcbbca";  // "abcbb";"bbacb"
+	char s[] = "abbcabcbbbabbacbacbbbcabbacbbbacbcbbbbaaabcbbcbabbcbabbcbcbabaaabbcbbcabbcbcbbcbabcbbcbcabbababcbbabcbabcbabcbcbbabbcbabcbabcbbabcbabbcbabcbbabbcbbabcbabbcbbabcbbacbbabcbbabcbbabbcbbbabcbabbcbabcbbabcbbbbbcabcbbabcaabbacbaacbcabcbabbcbbaccbac";
+	char t[] = "aaaa";  // "abcbb";"bbacb"
 	int index = str.indexKMP(s, t);
 	string ss = s;
-	ss = ss.substr(index, strlen(t));
+	if (index != -1)
+	{
+		ss = ss.substr(index, strlen(t));
+	}
 
 	cout << "Ô­´®: " << t << endl;
-	cout << index << ", " << ss << endl;
+	cout << index << ", " << (index == -1 ? "ÎÞ" : ss) << endl;
 }
 
 // --------------------------------------------Ê÷--------------------------------------------
+void DataStruct::binaryTree()
+{
+	Tree tree;
+	Tree* root = tree.create(10);
+
+	cout << root->getLChild(root) << endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // --------------------------------------------Í¼--------------------------------------------
 

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstring>
 #include "StringStruct.h"
 
 using namespace std;
@@ -62,28 +61,6 @@ int StringStruct::index(char* s, char* t)
 	{
 		return -1;
 	}
-	/*for (int i = 0; i < sLength; )
-	{
-		for (int j = 0; j < tLength; j++)
-		{
-			if (s[i] == t[j])
-			{
-				if (j == tLength - 1)
-				{
-					return n;
-				}
-				i++;
-			}
-			else
-			{
-				n++;
-				i = n;
-				break;
-			}
-		}
-	}
-
-	return -1;*/
 }
 
 int StringStruct::indexKMP(char* s, char* t)
@@ -97,7 +74,7 @@ int StringStruct::indexKMP(char* s, char* t)
 	next[1] = t[0] == t[1] ? 1 : 0;
 	for (i = 2; i < tLength; i++)
 	{
-		next[i] = getStrSize(t, next, i, t[i]);
+		next[i] = getNext(t, next, i, t[i]);
 	}
 	
 	for (i = 0; i < tLength; i++)
@@ -106,28 +83,23 @@ int StringStruct::indexKMP(char* s, char* t)
 	}
 	cout << endl;
 
+	// 240924BUG_1: 循环匹配串时结束条件，若无&&j<tLength，匹配完成时s串指针不自增，循环一直不退出
 	for (i = 0; i < sLength && j < tLength;)
 	{
-		for (;  j < tLength;)
+		if (s[i] == t[j])
 		{
-			char cs = s[i];
-			char ts = t[j];
-
-			if (cs == ts)
+			i++;
+			j++;
+		}
+		else
+		{
+			if (j != 0)
 			{
-				i++;
-				j++;
+				j = next[j - 1];
 			}
 			else
 			{
-				if (j != 0)
-				{
-					j = next[j - 1];
-				}
-				else
-				{
-					i++;
-				}
+				i++;
 			}
 		}
 	}
@@ -143,7 +115,9 @@ int StringStruct::indexKMP(char* s, char* t)
 }
 
 // 比较已知最长子串的下一个字符和当前字符是否相等，相等长度加一，不相等递归寻找最长子串的最长子串，直到无子串
-int StringStruct::getStrSize(char* t, int next[], int i, char c)
+// 问: AAAA串的next数组该为多少？0, 1, 2, 3; 若最后一个不匹配，j跳到next[i-1]=2, 也就是倒数第二个，不匹配则一直往前退，直到从头
+// 关于next数组的具体计算，详见B站视频 BV1PD4y1o7nd、BV1AY4y157yL
+int StringStruct::getNext(char* t, int next[], int i, char c)
 {
 	if (next[i - 1] == 0)
 	{
@@ -160,6 +134,6 @@ int StringStruct::getStrSize(char* t, int next[], int i, char c)
 	}
 	else
 	{
-		getStrSize(t, next, next[i - 1], c);
+		getNext(t, next, next[i - 1], c);
 	}
 }

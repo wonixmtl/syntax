@@ -40,6 +40,7 @@ public:
 	void stringKMP();
 	
 	// ---------Ê÷---------
+	void binaryTree();
 	
 	// ---------Í¼---------
 private:
